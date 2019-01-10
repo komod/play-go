@@ -12,14 +12,18 @@ func getWorld(s string) (string, error) {
 	return "world", nil
 }
 
-func redeclare() {
+func redeclareGood() {
 	var err error
-
 	s, err := getWorld("hi")
 	if err != nil {
-		fmt.Println("error: ", err)
+		fmt.Println(err)
+		return
 	}
+	fmt.Println(s)
+}
 
+func redeclareBad() {
+	var s string
 	if s == "" {
 		s, err := getWorld("hello")
 		if err != nil {
@@ -28,6 +32,5 @@ func redeclare() {
 		}
 		s += " peace"
 	}
-
 	fmt.Println(s)
 }
