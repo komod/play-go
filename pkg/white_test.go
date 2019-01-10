@@ -1,17 +1,13 @@
-package pkg_test
+package pkg
 
 import (
 	"fmt"
 	"testing"
-
-	. "github.com/komod/play-go/pkg"
 )
 
-func Test(t *testing.T) {
+func TestString(t *testing.T) {
 	const c = "c"
-	s := &MyString{}
-	s.SetContent(c)
-	if c != fmt.Sprint(s) {
+	if c != fmt.Sprint(&MyString{c}) {
 		t.Error("wrong")
 	}
 }
